@@ -1,0 +1,41 @@
+.home {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 0 20px;
+  width: 100%;
+  display: grid;
+  /* Define Auto Row size */
+  grid-auto-rows: 200px;
+  /*Define our columns */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 1em;
+}
+
+.image-container {
+  height: 200px;
+  width: 200px;
+}
+
+.image {
+  max-height: 100%;
+  max-width: 100%;
+  margin: 5px;
+  border-radius: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 60vw;
+  margin: 30px;
+}
