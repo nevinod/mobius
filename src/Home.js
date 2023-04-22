@@ -26,10 +26,8 @@ import {
 
 function TopHeader() {
   return (
-    <div>
-      <Heading style={{ position: "fixed", left: "20px", top: "20px" }}>
-        Mobius AI / Images
-      </Heading>
+    <div className="top-header">
+      <div className="company">Mobius/AI</div>
       <Divider orientation="horizontal" />
     </div>
   );
