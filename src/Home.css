@@ -75,10 +75,12 @@
   flex-direction: row;
   justify-content: start;
   width: 100vw;
+  border-bottom: 2px solid grey;
 }
 
 .company {
   font-size: 30px;
   font-weight: 600;
   padding: 20px;
+  width: 100%;
 }

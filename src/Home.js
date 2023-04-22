@@ -21,41 +21,34 @@ import {
   ModalHeader,
   ModalCloseButton,
   ModalBody,
+  ModalFooter,
   useDisclosure,
 } from "@chakra-ui/react";
 
 function TopHeader() {
   return (
     <div className="top-header">
-      <div className="company">Mobius/AI</div>
+      <div className="company">{"Mobius AI"}</div>
       <Divider orientation="horizontal" />
     </div>
   );
 }
 
-function Image({ image, showModal, setShowModal }) {
-  console.log(image);
+function Image({ image, setShowModal, setSelectedImage }) {
+  function handleClick() {
+    setSelectedImage(image);
+    setShowModal((showModal) => !showModal);
+    console.log(image);
+  }
+
   return (
-    <div
-      className="image-container"
-      onClick={() => setShowModal((showModal) => !showModal)}
-    >
+    <div className="image-container" onClick={handleClick}>
       <img className="image" src={image} />
       <div className="middle">
         <div style={{ display: "none" }} className="text">
           Share
         </div>
       </div>
-      <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <img className="modal-image" src={image} />
-          </ModalBody>
-        </ModalContent>
-      </Modal>
     </div>
   );
 }
@@ -66,10 +59,16 @@ function Home() {
   const [submitted, setSubmitted] = useState(false);
   const { isOpen, onClose } = useDisclosure();
   const [showModal, setShowModal] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   function handleClick() {
     setSubmitted(true);
     setLoading(0);
+  }
+
+  function unClick() {
+    setShowModal(false);
+    setSelectedImage(null);
   }
 
   useEffect(() => {
@@ -103,7 +102,7 @@ function Home() {
                       <InputGroup>
                         <Input
                           {...field}
-                          placeholder="name"
+                          placeholder="Description"
                           variant="flushed"
                           value={input}
                           onChange={(e) => setInput(e.target.value)}
@@ -133,15 +132,31 @@ function Home() {
                   image={image}
                   key={idx}
                   isOpen={isOpen}
-                  onClose={onClose}
-                  showModal={showModal}
                   setShowModal={setShowModal}
+                  setSelectedImage={setSelectedImage}
                 />
               );
             })}
           </div>
         )}
       </div>
+      {selectedImage && (
+        <Modal isOpen={showModal} onClick={handleClick} onClose={unClick}>
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>View Image</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+              <img className="modal-image" src={selectedImage} />
+            </ModalBody>
+            <ModalFooter>
+              <Button colorScheme="blue" mr={3} onClick={onClose}>
+                Share
+              </Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+      )}
     </ChakraProvider>
   );
 }
