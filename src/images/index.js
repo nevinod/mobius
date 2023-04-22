@@ -1,15 +1,15 @@
-import Image1 from "./A 3D render of an astronaut walking in a green desert.webp";
-import Image2 from "./A Shiba Inu dog wearing a beret and black turtleneck.webp";
-import Image3 from "./A blue orange sliced in half laying on a blue floor in front of a blue wall.webp";
-import Image4 from "./A computer from the 90s in the style of vaporwave.webp";
-import Image5 from "./A hand drawn sketch of a Porsche 911.webp";
-import Image6 from "./A hand-drawn sailboat circled by birds on the sea at sunrise.webp";
-import Image7 from "./A photo of Michelangelo's sculpture of David wearing headphones djing.webp";
-import Image8 from "./A sunlit indoor lounge area with a pool with clear water and another pool with translucent pastel pink water, next to a big window, digital art.webp";
-import Image9 from "./A synthwave style sunset above the reflecting water of the sea, digital art.webp";
-import Image10 from "./An Andy Warhol style painting of a french bulldog wearing sunglasses.webp";
-import Image11 from "./An armchair in the shape of an avocado.webp";
-import Image12 from "./An oil pastel drawing of an annoyed cat in a spaceship.webp";
+import Image1 from "./ezgif-3-a9ad3b7e5b.jpg";
+import Image2 from "./ezgif-3-fbe9ceb961.jpg";
+import Image3 from "./ezgif-3-18f17d5d7f.jpg";
+import Image4 from "./ezgif-3-89407dd20c.jpg";
+import Image5 from "./ezgif-3-c7d58fcf9c.jpg";
+import Image6 from "./ezgif-3-1b25dd1ee8.jpg";
+import Image7 from "./ezgif-3-18c0e9e8a9.jpg";
+import Image8 from "./ezgif-3-ac1c11d7d7.jpg";
+import Image9 from "./ezgif-3-c1883c95c8.jpg";
+import Image10 from "./ezgif-3-175308e748.jpg";
+import Image11 from "./ezgif-3-046009caa8.jpg";
+import Image12 from "./ezgif-3-1455eaf075.jpg";
 
 export const images = [
   Image1,
