@@ -4,7 +4,6 @@ import { Field, Form, Formik } from "formik";
 import "./Home.css";
 
 import {
-  Button,
   ChakraProvider,
   CircularProgress,
   Divider,
@@ -22,13 +21,14 @@ import {
   ModalCloseButton,
   ModalBody,
   ModalFooter,
+  Select,
   useDisclosure,
 } from "@chakra-ui/react";
 
 function TopHeader() {
   return (
     <div className="top-header">
-      <div className="company">{"Mobius AI"}</div>
+      <div className="company">{"mobius AI"}</div>
       <Divider orientation="horizontal" />
     </div>
   );
@@ -55,9 +55,9 @@ function Image({ image, setShowModal, setSelectedImage }) {
 
 function Home() {
   const [input, setInput] = useState("");
-  const [loading, setLoading] = useState(0);
+  const [loading, setLoading] = useState(100);
   const [submitted, setSubmitted] = useState(false);
-  const { isOpen, onClose } = useDisclosure();
+  const { isOpen } = useDisclosure();
   const [showModal, setShowModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -150,9 +150,12 @@ function Home() {
               <img className="modal-image" src={selectedImage} />
             </ModalBody>
             <ModalFooter>
-              <Button colorScheme="blue" mr={3} onClick={onClose}>
-                Share
-              </Button>
+              <Select placeholder="Share">
+                <option value="Twitter">Twitter</option>
+                <option value="Email">Email</option>
+                <option value="Instagram">Instagram</option>
+                <option value="TikTok">TikTok</option>
+              </Select>
             </ModalFooter>
           </ModalContent>
         </Modal>
