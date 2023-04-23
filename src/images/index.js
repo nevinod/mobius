@@ -11,7 +11,7 @@ import Image10 from "./ezgif-3-175308e748.jpg";
 import Image11 from "./ezgif-3-046009caa8.jpg";
 import Image12 from "./ezgif-3-1455eaf075.jpg";
 
-export const images = [
+export const allImages = [
   Image1,
   Image2,
   Image3,

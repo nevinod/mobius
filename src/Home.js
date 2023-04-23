@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import { images } from "./images/index";
+import { allImages } from "./images/index";
 import { Field, Form, Formik } from "formik";
 import "./Home.css";
 
 import {
+  Button,
   ChakraProvider,
+  //   ChevronDownIcon,
   CircularProgress,
   Divider,
   FormControl,
@@ -14,6 +16,10 @@ import {
   Input,
   InputRightAddon,
   InputGroup,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -54,6 +60,7 @@ function Image({ image, setShowModal, setSelectedImage }) {
 }
 
 function Home() {
+  const [images, setImages] = useState(allImages);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(100);
   const [submitted, setSubmitted] = useState(false);
@@ -89,12 +96,13 @@ function Home() {
             onSubmit={() => {
               setSubmitted(true);
               setLoading(0);
+              setImages(images.sort(() => Math.random() - 0.5));
             }}
           >
             {() => (
               <Form style={{ width: "100%" }}>
                 <Field name="name">
-                  {({ field, form }) => (
+                  {({ field }) => (
                     <FormControl>
                       <FormLabel>
                         Start with a detailed description...
@@ -150,12 +158,17 @@ function Home() {
               <img className="modal-image" src={selectedImage} />
             </ModalBody>
             <ModalFooter>
-              <Select placeholder="Share">
-                <option value="Twitter">Twitter</option>
-                <option value="Email">Email</option>
-                <option value="Instagram">Instagram</option>
-                <option value="TikTok">TikTok</option>
-              </Select>
+              <Menu>
+                <MenuButton as={Button} rightIcon={"↓"}>
+                  Share
+                </MenuButton>
+                <MenuList>
+                  <MenuItem>Twitter</MenuItem>
+                  <MenuItem>TikTok</MenuItem>
+                  <MenuItem>Instagram</MenuItem>
+                  <MenuItem>Email</MenuItem>
+                </MenuList>
+              </Menu>
             </ModalFooter>
           </ModalContent>
         </Modal>
