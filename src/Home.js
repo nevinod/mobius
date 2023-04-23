@@ -28,7 +28,7 @@ import {
 function TopHeader() {
   return (
     <div className="top-header">
-      <div className="company">{"mobius AI"}</div>
+      <div className="company">{"Mobius AI"}</div>
       <Divider orientation="horizontal" />
     </div>
   );
