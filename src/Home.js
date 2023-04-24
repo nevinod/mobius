@@ -34,7 +34,9 @@ import {
 function TopHeader() {
   return (
     <div className="top-header">
-      <div className="company">{"Mobius AI"}</div>
+      <div className="header">
+        <div className="company">{"Mobius AI"}</div>
+      </div>
       <Divider orientation="horizontal" />
     </div>
   );
@@ -44,7 +46,6 @@ function Image({ image, setShowModal, setSelectedImage }) {
   function handleClick() {
     setSelectedImage(image);
     setShowModal((showModal) => !showModal);
-    console.log(image);
   }
 
   return (
@@ -96,7 +97,7 @@ function Home() {
             onSubmit={() => {
               setSubmitted(true);
               setLoading(0);
-              setImages(images.sort(() => Math.random() - 0.5));
+              setImages((images) => images.sort(() => Math.random() - 0.5));
             }}
           >
             {() => (
@@ -134,17 +135,18 @@ function Home() {
         {loading > 0 && loading < 100 && <CircularProgress value={loading} />}
         {loading >= 100 && (
           <div className="home">
-            {images.map((image, idx) => {
-              return (
-                <Image
-                  image={image}
-                  key={idx}
-                  isOpen={isOpen}
-                  setShowModal={setShowModal}
-                  setSelectedImage={setSelectedImage}
-                />
-              );
-            })}
+            {submitted &&
+              images.map((image, idx) => {
+                return (
+                  <Image
+                    image={image}
+                    key={idx}
+                    isOpen={isOpen}
+                    setShowModal={setShowModal}
+                    setSelectedImage={setSelectedImage}
+                  />
+                );
+              })}
           </div>
         )}
       </div>
