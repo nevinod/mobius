@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import Home from "./Home";
-import Account from "./Account";
 import "./index.css";
 
 import {
@@ -12,11 +11,7 @@ import {
 } from "react-router-dom";
 
 const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<Home />}>
-      <Route path="account" element={<Account />} />
-    </Route>
-  )
+  createRoutesFromElements(<Route path="/" element={<Home />}></Route>)
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(

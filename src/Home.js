@@ -6,13 +6,11 @@ import "./Home.css";
 import {
   Button,
   ChakraProvider,
-  //   ChevronDownIcon,
   CircularProgress,
   Divider,
   FormControl,
   FormLabel,
   FormHelperText,
-  Heading,
   Input,
   InputRightAddon,
   InputGroup,
@@ -27,7 +25,6 @@ import {
   ModalCloseButton,
   ModalBody,
   ModalFooter,
-  Select,
   useDisclosure,
 } from "@chakra-ui/react";
 
