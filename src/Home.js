@@ -94,7 +94,7 @@ function Home() {
             onSubmit={() => {
               setSubmitted(true);
               setLoading(0);
-              setImages((images) => images.sort(() => Math.random() - 0.5));
+              setImages((images) => [...images.sort(() => Math.random() - 0.5)]);
             }}
           >
             {() => (
